@@ -1,0 +1,1130 @@
+/****** STYLES for MAJORCA by Jenn Nickerson ********/
+/*** CSS Rset Styles ***/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+/*blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content:none;
+}*/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*** End of Reset Styles ***/
+
+/*** Font Import ***/
+@import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap');
+
+/*** Setting Up the Brand Colors & Fonts as variables ***/
+
+:root{
+    --yellow: #F6D64A;
+    --teal: #55BCD5;
+    --purple: #9B26B0;
+    --blue: #499BD2;
+    --dark-gray: #222222;
+    --light-gray: #eaeaea;
+    --white: #fff;
+    --black: #000;
+    --headerFont: 'Molle', cursive;
+    --bodyFont: 'Montserrat', sans-serif;
+    --select-arrow: var(--select-border);
+    --select-border: #777;
+    --select-focus: blue;
+  }
+
+  /*** Body & Font Styles ***/
+
+body{
+    font-size: 16px;
+    font-family: var(--bodyFont);
+    color: var(--dark-gray);
+    background-color: var(--white);
+    padding-bottom: 0px;
+}
+
+h1, h2, h3 {
+    font-family: var(--headerFont);
+    color: var(--dark-gray);
+}
+h1{
+    font-size: 4em;
+}
+
+h2{
+    font-size: 3em;
+    
+}
+h3{
+    font-size: 2.75em;
+    padding-top: 1em;
+    margin-left: 1.2em;
+}
+
+h4 {
+    font-family: var(--bodyFont);
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+p {
+    font-family: var(--bodyFont);
+    font-size: 1.2em;
+    line-height: 1.7em;
+    color: var(--dark-gray);
+    font-weight: 200;
+}
+
+/*** Header Styles ***/
+
+header{
+    padding: 1.5em 1em;
+    background: linear-gradient(180deg, rgba(85,188,213,1) 0%, rgba(85,188,213,.5) 40%, rgba(255,255,255,1) 100%);
+    display: grid;
+    gap: .5em 1.2em;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: max-content;
+}
+#logo {
+    grid-column: 1/1;
+    grid-row: 1;
+}
+nav {
+    grid-column: 3/4;
+    grid-row: 1;
+}
+header h1{
+    grid-column: 1/span 4;
+    grid-row: 2;
+    margin-top: .5em;
+    margin-left: .67em;
+}
+
+header p {
+    grid-column: 1/span 4;
+    grid-row: 3;
+    padding-left: 1.6em;
+    font-size: 1.6em;
+    line-height: 1.5em;
+    font-weight: 100;
+}
+
+
+/* Accessible Styling */
+#skip{
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+ 
+#skip:focus
+{
+    position:static;
+    width:auto;
+    height:auto;
+}
+.sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    }
+
+/*** Menu Styles ***/
+
+#menu-toggle {
+    display: block;
+    position: relative;
+    top: 10px;
+    z-index: 1;  
+    -webkit-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+  }
+  
+  #menu-toggle a {
+    text-decoration: none;
+    color:var(--dark-gray);
+    -webkit-transition: color 0.3s ease;
+    -o-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+  }
+  
+  #menu-toggle a:hover {
+    color: var(--white);
+  }
+  
+  
+  /* The hamburger button hidden inside an input element */
+  #menu-toggle input {
+    display: block;
+    position: absolute;
+    top: 1em;
+    padding: 0;
+    cursor: pointer;  
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */  
+    -webkit-touch-callout: none;
+  }
+  
+  #menu-toggle label span {
+    display: none;
+  }
+  
+  /*
+   * button for menu
+   */
+   #menu-toggle label{
+    position: relative;
+    top: 0px;
+    right: 1%;
+    display: block;
+    width: 200px;
+    height: 70px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: 14px;
+    text-align: center;
+    font-size: 1.2em;
+    text-transform:uppercase;
+    font-weight: 700;
+    background-color: var(--yellow);
+    border-radius: 1px;  
+    z-index: 1;  
+    -webkit-transform-origin: 4px 0px;  
+    -ms-transform-origin: 4px 0px;  
+    transform-origin: 4px 0px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  
+  #menu-toggle label:first-child {
+    -webkit-transform-origin: 0% 100%;
+    -ms-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+  }
+  
+  #menu-toggle label:nth-child(2) {
+    -webkit-transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+  }
+  
+  /* 
+   * Change the color of the hamburger when toggled
+   */
+   #menu-toggle input:checked + label{
+    background: var(--dark-gray);
+    color: var(--white);
+    width: 300px;
+    right: 95px;
+  }
+  
+  /*
+   * Use absolute positioning to place the menu off-screen
+   */
+  #menu-toggle ul {
+    position: absolute;
+    width: 300px;
+    margin: -70px 450px 0 -80px;
+    /*padding: 50px;*/
+    padding-top: 50px;
+    background: var(--teal);
+    list-style-type: none;
+    /* Hide the menu off-screen to the left */
+    right: 500px;
+    -webkit-transition: left 0.3s ease;
+    -o-transition: left 0.3s ease;
+    transition: left 0.3s ease; 
+    
+  }
+
+  /** Style Menu Items **/
+  
+  #menu-toggle ul li {
+    padding: 50px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    text-transform:uppercase;
+    border-top: 2px solid var(--dark-gray);
+  }
+  
+  /*
+   * Slide the menu in from left when the input is checked
+   */
+  #menu-toggle input:checked ~ ul {
+    left: 0;
+  }
+
+  /*** Main Content Styles ***/
+#main-content img{
+    max-width: 100%;
+    height: auto;
+}
+  
+/*** Intro Styles ***/
+
+#intro h2{
+    padding-top: .4em;
+    margin-left: 1.2em;
+}
+#intro p {
+    padding: .7em 1em 1em 2.8em;
+}
+
+#img-grid {
+    padding: 0;
+}
+#img-grid img {
+    width: 100%;
+    margin-bottom: 1em;
+}
+#img-grid picture img{
+    height: 60vh;
+}
+/*** Plan Your Trip ***/
+
+#plan {
+    background-color: var(--yellow);
+    padding-bottom: 1.25em;
+    display: flex;
+    flex-direction: column;
+}
+#plan section {
+    background-color: var(--teal);
+    height: 340px;
+    width: 85%;
+    display: flex;
+    margin: .75em auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--white);
+    border-radius: 12px;   
+}
+
+#plan section h4 {
+    margin-top: -.5em;
+    margin-bottom: 1.3em;
+   font-size: 1.8em;
+   font-weight: 700;
+}
+
+
+/*** Testimonials ***/
+
+#testimonials section{
+    display: flex;
+    margin: 1.75em auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+
+#testimonials section h4 {
+    margin-top: .5em;
+    font-size: 2em;
+    line-height: 1.2em;
+    font-weight: 700;
+    text-align: center;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+#testimonials section p {
+    font-size: 1.5em;
+    font-weight: 100;
+    
+}
+
+#testimonials section q {
+    text-align: center;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 1.4em;
+    line-height: 1.2em;
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+#testimonials section q::before {
+    content: open-quote;
+}
+
+#testimonials section q::after{
+    content: close-quote;
+}
+
+/*** About ***/
+
+#about {
+    background-color: var(--blue);
+}
+
+#about div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#about div section {
+    display: flex;
+    margin: .75em auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#about img {
+    width: 70%;
+}
+
+#about h4 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: 1em;
+}
+
+#about p {
+    text-align: center;
+}
+
+/*** Contact ***/
+
+/*form {
+    font-size: 1.5em;
+}*/
+.form-required {
+    font-family: var(--bodyFont);
+    font-size: .59em;
+    font-style: italic;
+}
+
+#names {
+    display: flex;
+    margin: .75em auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+
+#nums {
+    display: flex;
+    margin: .75em auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+
+
+#selects {
+    display: flex;
+    margin: .75em auto;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+form label  {
+    font-size: 1.4em;
+    margin-bottom: .3em;
+    text-transform:uppercase;
+    font-weight: 700;
+}
+
+input::placeholder {
+    font-size: 1.8em;
+}
+
+input:focus-within {
+    font-size: 1.5em;
+    padding: 1.1em 1.1em;
+}
+
+.required{
+    color: var(--purple);
+}
+input {
+    padding: 2.5em 1.5em;
+    border: 3px solid var(--purple);
+    margin-bottom: 1.2em;
+}
+/** Radio Button Styles **/
+legend {
+    font-size: 1.4em;
+    margin-bottom: .75em;
+    text-transform:uppercase;
+    font-weight: 700;
+}
+fieldset label{
+    font-weight: 200;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 3em auto;
+    align-items: center;
+    gap: .15em;
+    margin-bottom: 1.5em;
+}
+
+input[type="radio"]{
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+    font: inherit;
+    color: var(--purple);
+    border: .2em solid var(--purple);
+    padding: 0 0;
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+  }
+
+  input[type="radio"]::before {
+    content: "";
+    width: 1.65em;
+    height: 1.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1.2em 1.2em var(--purple);
+    /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+
+  input[type="radio"]:focus {
+    outline: max(2px, 0.15em) solid var(--white);
+    outline-offset: max(2px, 0.15em);
+  }
+
+  
+/** Dropdown Selector Styles **/
+
+select {
+    /*A reset of styles, including removing the default dropdown arrow*/
+    appearance: none;
+    /*Additional resets for further consistency*/
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  .custom-select {
+    width: 100%;
+    /*min-width: 15ch;
+    max-width: 30ch;*/
+    border: 3px solid var(--purple);
+    padding: 1em 0.65em;
+    font-size: 1.5em;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    margin-bottom: 1.2em;
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    position: relative;
+  }
+
+  select, .custom-select:after {
+    grid-area: select;
+    
+}
+.custom-select:after{
+    justify-self: end;   
+}
+
+.custom-select::after {
+    content: "";
+    width: 2em;
+    height: 1em;
+    background-color: var(--purple);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    }
+
+select:focus + .focus {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 2px solid var(--select-focus);
+    border-radius: inherit;
+      }
+
+
+#mySubmit {
+    color: var(--white);
+    background-color: var(--purple);
+    font-size: 1.8em;
+    padding: 1.2em 1.5em;
+}
+    
+
+/*** Footer ***/
+
+footer {
+    background-color: var(--light-gray);
+    font-size: 1.3em;
+    display: flex;
+    margin: .75em auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-bottom: 0px;
+}
+
+footer a {
+    color: var(--black);
+    text-decoration:none;
+    margin-top: 1.2em;
+}
+
+/******* Tablet Screen Styles *********/
+
+@media (min-width: 600px){
+
+    /*** 600min Header Styles ***/
+
+header{
+    padding-left: 2em;
+    padding-right: 1.5em;
+    display: grid;
+    gap: .5em 1.2em;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: max-content;
+}
+#logo {
+    grid-column: 1/span 1;
+    grid-row: 1;
+}
+nav {
+    grid-column: 1/span 4;
+    grid-row: 3;
+}
+header h1{
+    grid-column: 2/span 3;
+    grid-row: 1;
+    margin-top: .5em;
+    margin-left: .67em;
+}
+
+header p {
+    grid-column: 2/span 3;
+    grid-row: 2;
+    padding-left: 1.6em;
+    font-size: 1.6em;
+    line-height: 1.5em;
+    font-weight: 100;
+}
+
+/*** 600 min Menu Styles ***/
+
+#menu-toggle{
+    visibility: hidden;
+    /*width: 99%;*/ 
+  }
+
+  #menu-toggle ul {
+    width: 85%;
+    margin: 1em auto;
+    /*display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;*/
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+    visibility:visible;
+    background: none;
+    left: 1em;
+    position: absolute;
+    bottom: -65px;
+  }
+  
+  #menu-toggle ul li {
+    font-size: 1em;
+    display: grid;
+    /*display: flex;
+    flex-direction: row;
+    flex-basis: 0;*/
+    width: 30%;
+    /*width: 170px;*/
+    font-weight: 700;
+    text-align: center;
+    text-transform:uppercase;
+    border-top: none;
+  }
+
+  #menu-toggle ul li a { 
+    background-color: var(--white);
+    text-align: center;
+    padding: 1em;
+  }
+
+  #menu-toggle ul li a:hover, #menu-toggle ul li a:active {
+    background-color: var(--yellow);
+    color: var(--dark-gray);
+  }
+  
+
+  /*** 600min Main Content Styles ***/
+#main-content img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*** 600min Intro ***/
+
+#img-grid {
+    padding-left: 1em;
+    padding-right: 1em;
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-template-rows: max-content;
+    gap: 1em;
+}
+#img-grid > img {
+    grid-column: 1;
+    width: 100%;
+}
+
+#img-grid img + img{
+    grid-column: 2;
+    width: 100%;
+}
+
+
+#img-grid picture{
+    grid-column: 1/span 2;
+    margin-top: -10px;
+}
+    
+#img-grid picture img {
+   width: 100%;
+    }
+
+/*** 600min Plan ***/
+#plan div{
+    width: 85%;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+#plan h3 {
+    margin-left: 2.5em;
+}
+#plan section {
+    background-color: var(--teal);
+    height: 340px;
+    width: 45%;
+    display: flex;
+    margin: .75em auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--white);
+    border-radius: 12px;   
+}
+
+/*** 600min Testimonials ***/
+
+#testimonials h3 {
+    margin-left:2.5em;
+}
+
+#testimonials div {
+    width: 85%;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#testimonials section {
+    width: 45%; 
+}
+
+/*** 600min About ***/
+
+#about {
+    background-color: var(--blue);
+}
+#about h3 {
+    margin-left: 2.5em;
+}
+
+#about div {
+    width: 90%;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#about div section {
+    display: flex;
+    margin: .75em auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/*** 600min Contact Styles ***/
+
+fieldset {
+    display: flex;
+    flex-direction: row;
+}
+
+fieldset label{
+    font-weight: 200;
+    line-height: 1.1;
+    width: 30%;
+    display: grid;
+    grid-template-columns: 3em auto;
+    align-items: center;
+    gap: .15em;
+    margin-bottom: 1.5em;
+}
+
+#mySubmit {
+    margin-top: 1em;
+    width: 30%;
+    position: relative;
+    bottom: .1em;
+    left: 70%;
+}
+
+/*** 600min Footer Styles ***/
+
+footer {
+    background-color: var(--light-gray);
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2em 10%;
+    margin-bottom: 0px;
+}
+footer p {
+    width: 45%;
+    padding-top: 1em;
+}
+
+footer a {
+    width: 29%;
+    color: var(--black);
+    text-decoration:none;
+    text-align:right;
+    /*margin-top: 1.2em;*/
+}
+
+}
+
+/******* Large Screen Styles *********/
+
+@media only screen and (max-width: 1920px) and (min-width: 1100px) {
+
+     /*** 1100min Header Styles ***/
+
+    header{
+        padding-left: 2em;
+        padding-right: 1.5em;
+        display: grid;
+        gap: .5em 1.2em;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: max-content;
+    }
+    #logo {
+        grid-column: 1/span 1;
+        grid-row: 1;
+    }
+
+    header h1{
+        grid-column: 2/span 2;
+        grid-row: 1;
+        margin-top: .5em;
+        margin-left: .67em;
+    }
+    
+    header p {
+        grid-column: 2/span 2;
+        grid-row: 2;
+        padding-left: 1.6em;
+        font-size: 1.6em;
+        line-height: 1.5em;
+        font-weight: 100;
+    }
+
+    nav {
+        grid-column: 3/span 3;
+        grid-row: 1;
+    }
+    #menu-toggle ul{
+        position: absolute;
+        bottom: -30px;
+        width: 30%;
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: .2em;
+    }
+
+    #menu-toggle ul li {
+        display: grid;
+        width: 25%;
+        
+      }
+
+   
+
+/*** 1100min Main Content Styles ***/
+#main-content img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*** 1100min Intro ***/
+
+#intro {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+#intro h2{
+    grid-column:1;
+    margin-left: 2.5em;
+    padding-top: .4em;
+    
+}
+#intro p {
+    grid-column:1;
+    margin-left: 2.5em;
+    padding: .7em 1em 1em 2.8em;
+}
+
+#img-grid {
+    padding-left: 1em;
+    padding-right: 1em;
+    grid-column:2;
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    grid-template-rows: max-content;
+    gap: 1em;
+}
+
+/*** 1100min Plan ***/
+#plan div{
+    width: 85%;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    column-gap: 2px;
+}
+#plan h3 {
+    margin-left: 2.5em;
+}
+#plan section {
+    background-color: var(--teal);
+    height: 300px;
+    width: 23%;
+    padding-top: .5em;
+    display: flex;
+    /*margin: .75em auto;*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--white);
+    border-radius: 12px;   
+}
+#plan section h4 {
+    font-size: 1.6em;
+}
+/*** 1100min Testimonials ***/
+
+
+#testimonials div {
+    width: 85%;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#testimonials section {
+    width: 25%; 
+}
+
+#testimonials section:nth-child(3){
+    margin-top: -15px;
+}
+#testimonials section h4 {
+    margin-top: .5em;
+    font-size: 1.5em;
+}
+
+/*** 1100min About ***/
+
+#about div {
+    width: 75%;
+    margin: 1em auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#about div section {
+    display: flex;
+    margin: .75em auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*** 1100min Contact Styles ***/
+
+form {
+    width: 95%;
+    margin: 1em auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#names {
+    margin-top: -5em;
+    grid-row: 1;
+}
+
+#nums {
+    margin-top: 1em;
+    grid-row: 1;
+}
+#selects {
+    margin-top: 5em;
+    grid-row: 1;  
+}
+
+fieldset label{
+    width: 33%;
+}
+
+input[type="radio"]{
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: #fff;
+    /* Not removed via appearance */
+    margin: 0;
+    border: .2em solid var(--purple);
+    padding: 0 0;
+    border-radius: 50%;
+    width: 1.75em;
+    height: 1.75em;
+  }
+
+input[type="radio"]::before {
+    content: "";
+    width: 1.1em;
+    height: 1.1em;
+}
+
+
+input[type="radio"]:focus {
+    outline: max(2px, 0.1em) solid var(--white);
+    outline-offset: max(2px, 0.1em);
+  }
+
+.radio-label {
+      margin-left: -1.2em;
+  }
+
+
+
+#mySubmit {
+    margin-left:-180px;
+    width: 300px;
+}
+
+/*** 1100min Footer Styles ***/
+
+footer {
+    padding: 2em 5%;
+}
+
+    
+}
